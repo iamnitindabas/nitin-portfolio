@@ -12,6 +12,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://nitin-portfolio-716.pages.dev/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Nitin Dabas","jobTitle":"Senior Mendix Developer","url":"https://nitin-portfolio-716.pages.dev/","address":{"@type":"PostalAddress","addressLocality":"Delhi","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/nitindabas1999/"],"knowsAbout":["Mendix","Domain modelling","Snowflake","Google Cloud Functions","REST APIs","AI-assisted development"]}
+</script>
 <meta name="site-kind" content="software">
 <meta name="page-type" content="software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +47,7 @@
 <link rel="stylesheet" href="assets/ui/files/fragment.css">
 <link rel="stylesheet" href="assets/ui/checklist/fragment.css">
 <link rel="stylesheet" href="assets/ui/integrations/fragment.css">
+<link rel="stylesheet" href="assets/ui/code/fragment.css">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -73,6 +78,15 @@
   .globe-canvas:active { cursor: grabbing; }
   [data-globe-ready] .globe-poster { opacity: 0; }
   .record-below { margin-top: var(--s-8); }
+  .client-mark { display: inline-flex; align-items: center; height: 34px; padding: 0 12px; margin: 0 0 var(--s-3); background: #e9edf3; border-radius: 6px; }
+  .client-mark img { height: 14px; width: auto; display: block; }
+  .tools-row { display: flex; align-items: center; gap: var(--s-4); padding: 12px 16px; border-radius: 6px; width: max-content; max-width: 100%; background: #e9edf3; }
+  .tools-row img { height: 20px; width: auto; display: block; }
+  .ai-panel { --p-h: 320px; }
+  @media (max-width: 639px) { .ai-panel { --p-h: 420px; } .ui-code__pre { font-size: 11px; } }
+  @media (max-width: 639px) { .term { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; } }
+  .term { margin: 0; padding: var(--s-5); background: var(--p-surface); border: 1px solid color-mix(in oklab, var(--p-ink) 12%, transparent); border-radius: 8px; overflow-x: auto; font: 400 13px/1.75 var(--font-mono); color: var(--p-ink); }
+  .term code { font: inherit; }
   .close__word { font-size: clamp(56px, 12.5vw, 168px); line-height: .9; margin-top: var(--s-7); }
   footer.closing .wrap { height: auto; }
   footer.closing .closing__links { margin-top: var(--s-7); }
@@ -96,6 +110,7 @@
       <div class="nav__item"><a class="nav__link" href="#work">Work</a></div>
       <div class="nav__item"><a class="nav__link" href="#reach">Reach</a></div>
       <div class="nav__item"><a class="nav__link" href="#build">Build</a></div>
+      <div class="nav__item"><a class="nav__link" href="#ai">AI</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="mailto:nitindabas1000@gmail.com">Start a conversation</a>
@@ -194,6 +209,7 @@
       </div>
       <div class="grid">
         <article class="card card--row card--open span-6">
+          <p class="client-mark"><img src="assets/logos/totalenergies.svg" alt="TotalEnergies"></p>
           <h3>Runs the Antwerp refineries on 34 applications</h3>
           <p>HR, shift management, inventory and maintenance, wired to Snowflake and internal REST services for data that operations depend on.</p>
           <div class="panel">
@@ -211,6 +227,7 @@
           </div>
         </article>
         <article class="card card--row card--open span-6">
+          <p class="client-mark"><img src="assets/logos/tegna.svg" alt="TEGNA"></p>
           <h3>TEGNA's migration off PowerApps</h3>
           <p>Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
           <div class="panel">
@@ -247,6 +264,7 @@
             <li><span class="rows__name">TEGNA</span><p>Media and broadcasting, United States.</p></li>
             <li><span class="rows__name">Delhi</span><p>Where the applications are built and shipped.</p></li>
           </ul>
+          <p><a class="link" href="#work">See the Antwerp applications</a></p>
         </div>
         <div class="frame span-6 start-7" data-visual>
           <div class="stage" data-globe>
@@ -289,6 +307,54 @@
                   <li class="ui-app is-on"><span class="ui-app__text"><span class="ui-app__name">Internal REST APIs</span><span class="ui-app__sub">Writes back to operations systems</span></span><span class="ui-app__state"><span class="ui-chip ui-app__on">Connected</span></span></li>
                   <li class="ui-app is-on"><span class="ui-app__text"><span class="ui-app__name">PostgreSQL</span><span class="ui-app__sub">Stores the application data</span></span><span class="ui-app__state"><span class="ui-chip ui-app__on">Connected</span></span></li>
                 </ul>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ai" aria-labelledby="ai-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="ai-h">AI-assisted delivery, on the tools that exist</h2>
+        <p>Studio Pro runs a local MCP server; Maia and external agents edit the open model; mxcli applies the same changes as MDL and runs the check.</p>
+      </div>
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <ul class="rows">
+            <li><span class="rows__name">Plan</span><p>Maia Make turns a requirement into entities, pages, microflows and stories.</p></li>
+            <li><span class="rows__name">Apply</span><p>The Studio Pro MCP server lets Claude Code or another agent change the model live.</p></li>
+            <li><span class="rows__name">Check</span><p>mxcli runs the same changes from the command line, checks the project and starts the app.</p></li>
+          </ul>
+          <div class="tools-row">
+            <img src="assets/logos/mendix.svg" alt="Mendix">
+            <img src="assets/icons/demo/claude.svg" alt="Claude">
+            <img src="assets/icons/demo/openai.svg" alt="OpenAI Codex">
+            <img src="assets/icons/demo/visual-studio-code.svg" alt="Visual Studio Code">
+          </div>
+        </div>
+        <div class="span-6 start-7">
+          <div class="panel ai-panel">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:460px;--ax:max(24px, 50% - 230px);--ay:40px;--ay-sm:16px">
+              <div class="ui ui-panel ui-code" data-ui="code">
+                <div class="ui-code__tabs">
+                  <span class="ui-code__tab is-on"><i class="ui-code__lang">SH</i>mcp.sh</span>
+                  <span class="ui-code__tab"><i class="ui-code__lang">SH</i>check.sh</span>
+                  <span class="ui-spacer"></span>
+                  <span class="ui-chip ui-chip--plain ui-code__chip" data-code-chip>localhost</span>
+                </div>
+                <pre class="ui-code__pre"><code><span class="ui-code__ln" data-n="1"><span class="c"># connect an agent</span></span>
+<span class="ui-code__ln" data-n="2">claude mcp add --transport http \</span>
+<span class="ui-code__ln" data-n="3">  http://localhost:7782/mcp</span>
+<span class="ui-code__ln" data-n="4"><span class="c"># what it can author</span></span>
+<span class="ui-code__ln is-mark" data-n="5">mxcli mcp capabilities -p app.mpr \</span>
+<span class="ui-code__ln" data-n="6">  --mcp http://localhost/mcp</span>
+<span class="ui-code__ln" data-n="7"><span class="c"># apply and check</span></span>
+<span class="ui-code__ln" data-n="8">mxcli exec changes.mdl -p app.mpr \</span>
+<span class="ui-code__ln" data-n="9">  --mcp http://localhost/mcp --mcp-check</span></code></pre>
+                <div class="ui-code__hint" data-code-hint><span class="ui-dot"></span><span data-code-text>Studio Pro serves the model on localhost.</span></div>
               </div>
             </div></div>
           </div>
