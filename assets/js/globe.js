@@ -47,7 +47,7 @@ function start() {
 
   // arcs: Delhi out to Rotterdam and Tysons, lifted off the surface
   const HOME = vec(77.21, 28.61);
-  const SITES = [vec(4.13, 51.92), vec(-77.23, 38.92)];
+  const SITES = [vec(4.4, 51.22), vec(-77.23, 38.92)];
   const slerp = (a, b, t) => {
     const d = Math.min(1, Math.max(-1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2]));
     const o = Math.acos(d);

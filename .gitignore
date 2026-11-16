@@ -6,7 +6,7 @@ node_modules/
 
 # tooling, not the site
 .agents/
-tools/
+
 _probe*.html
 
 # personal files, never published
@@ -16,3 +16,10 @@ _probe*.html
 # os noise
 .DS_Store
 Thumbs.db
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
