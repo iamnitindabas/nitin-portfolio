@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nitin-portfolio-716.pages.dev/sitemap.xml
+Sitemap: https://nitin-dabas.pages.dev/sitemap.xml

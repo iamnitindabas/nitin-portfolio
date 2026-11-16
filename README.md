@@ -3,7 +3,7 @@
 Single-page portfolio for Nitin Dabas, senior Mendix developer. Static HTML, CSS and vanilla JS —
 no framework, no build step, no third-party JS at runtime.
 
-**Live:** https://nitin-portfolio-716.pages.dev
+**Live:** https://nitin-dabas.pages.dev
 
 ## The page
 
@@ -35,7 +35,7 @@ Copy-Item index.html,favicon.svg,globe-fallback.svg,share.jpg $dist
 robocopy assets "$dist\assets" /E /NFL /NDL /NJH /NJS /NP | Out-Null
 
 # 2. publish
-npx wrangler pages deploy dist --project-name nitin-portfolio --branch main
+npx wrangler pages deploy dist --project-name nitin-dabas --branch main
 ```
 
 `dist/` is ignored by git; Pages stores the previous deployment, so a rollback is in the
