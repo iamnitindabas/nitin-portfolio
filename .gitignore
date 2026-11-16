@@ -1,0 +1,18 @@
+# build and check artefacts
+.taste-skill/
+shots/
+dist/
+node_modules/
+
+# tooling, not the site
+.agents/
+tools/
+_probe*.html
+
+# personal files, never published
+*.pdf
+*.docx
+
+# os noise
+.DS_Store
+Thumbs.db
