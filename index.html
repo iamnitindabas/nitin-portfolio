@@ -83,6 +83,19 @@
   .tools-row { display: flex; align-items: center; gap: var(--s-4); padding: 12px 16px; border-radius: 6px; width: max-content; max-width: 100%; background: #e9edf3; }
   .tools-row img { height: 20px; width: auto; display: block; }
   .ai-panel { --p-h: 320px; }
+  .link--button { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  dialog.arch { position: fixed; inset: 0 0 0 auto; margin: 0; height: 100%; width: min(600px, 100%); max-width: 100%; max-height: 100%; border: 0; padding: 0; background: var(--p-surface); color: var(--p-ink); }
+  dialog.arch::backdrop { background: rgb(3 5 9 / .62); }
+  .arch__in { display: flex; flex-direction: column; height: 100%; padding: var(--s-6); gap: var(--s-5); overflow-y: auto; }
+  .arch__head { display: flex; align-items: start; justify-content: space-between; gap: var(--s-4); }
+  .arch__head h2 { margin: 0; font-size: var(--t-h3); }
+  .arch__close { width: 40px; height: 40px; border-radius: 8px; border: 1px solid color-mix(in oklab, var(--p-ink) 18%, transparent); background: none; color: inherit; font-size: 20px; line-height: 1; cursor: pointer; }
+  .arch__diagram { width: 100%; height: auto; display: block; }
+  .arch__rows { list-style: none; margin: 0; padding: 0; }
+  .arch__rows li { display: grid; gap: 4px; padding: 12px 0; border-top: 1px solid color-mix(in oklab, var(--p-ink) 12%, transparent); }
+  .arch__rows b { font-weight: 500; font-size: var(--t-small); }
+  .arch__rows span { color: var(--p-muted); font-size: var(--t-small); }
+  @media (max-width: 639px) { .arch__in { padding: var(--s-5); } }
   @media (max-width: 639px) { .ai-panel { --p-h: 420px; } .ui-code__pre { font-size: 11px; } }
   @media (max-width: 639px) { .term { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; } }
   .term { margin: 0; padding: var(--s-5); background: var(--p-surface); border: 1px solid color-mix(in oklab, var(--p-ink) 12%, transparent); border-radius: 8px; overflow-x: auto; font: 400 13px/1.75 var(--font-mono); color: var(--p-ink); }
@@ -212,6 +225,7 @@
           <p class="client-mark"><img src="assets/logos/totalenergies.png" alt="TotalEnergies"></p>
           <h3>Runs the Antwerp refineries on 34 applications</h3>
           <p>HR, shift management, inventory and maintenance, wired to Snowflake and internal REST services for data that operations depend on.</p>
+          <p><button class="link link--button" type="button" data-arch="total">Inspect the architecture</button></p>
           <div class="panel">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:430px;--ax:max(24px, 50% - 215px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-files" data-ui="files" data-reading="Loading {n} of {total}">
@@ -230,6 +244,7 @@
           <p class="client-mark"><img src="assets/logos/tegna.svg" alt="TEGNA"></p>
           <h3>TEGNA's migration off PowerApps</h3>
           <p>Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
+          <p><button class="link link--button" type="button" data-arch="tegna">Inspect the architecture</button></p>
           <div class="panel">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-panel ui-checks" data-ui="checklist">
@@ -379,7 +394,7 @@
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="stack" aria-hidden="true"></span>Nitin Dabas</a>
           <p class="footer__lede">Mendix development for enterprise operations.</p>
-          <p><a class="link" href="mailto:nitindabas1000@gmail.com">Email Nitin</a> &nbsp; <a class="link" href="https://www.linkedin.com/in/nitindabas1999/">LinkedIn</a></p>
+          <p><a class="link" href="mailto:nitindabas1000@gmail.com">Email Nitin</a> &nbsp; <button class="link link--button" type="button" data-copy-email>Copy email</button> &nbsp; <a class="link" href="https://www.linkedin.com/in/nitindabas1999/">LinkedIn</a></p>
         </div>
         <div class="span-2 footer__col"><h3>Record</h3><ul><li><a href="#record">Numbers</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Work</h3><ul><li><a href="#work">Refining apps</a></li><li><a href="#work">TEGNA migration</a></li></ul></div>
@@ -400,5 +415,38 @@
 <script type="module" src="assets/layout/layout.js"></script>
 <script type="module" src="assets/js/globe.js"></script>
 
+<dialog class="arch" id="arch-total" aria-labelledby="arch-total-h">
+  <div class="arch__in">
+    <div class="arch__head">
+      <div><p class="t-label muted">TotalEnergies &middot; Antwerp</p><h2 id="arch-total-h">How the refining apps are put together</h2></div>
+      <button class="arch__close" type="button" data-close aria-label="Close">&times;</button>
+    </div>
+    <svg class="arch__diagram" viewBox="0 0 560 200" role="img" aria-label="The Mendix app, REST services, and Snowflake"><g fill="none" stroke="#5ab9fc" stroke-width="1.2"><rect x="8" y="70" width="150" height="56" rx="7"/><rect x="205" y="70" width="150" height="56" rx="7"/><rect x="402" y="70" width="150" height="56" rx="7"/><path d="M158 98h47M355 98h47" stroke-dasharray="4 4"/></g><g fill="#e9edf3" font-family="Epilogue, sans-serif" font-size="15"><text x="83" y="103" text-anchor="middle">Mendix</text><text x="280" y="103" text-anchor="middle">REST</text><text x="477" y="103" text-anchor="middle">Snowflake</text></g><g fill="#8891a1" font-family="Epilogue, sans-serif" font-size="12"><text x="83" y="150" text-anchor="middle">model and screens</text><text x="280" y="150" text-anchor="middle">internal services</text><text x="477" y="150" text-anchor="middle">reporting views</text></g></svg>
+    <ul class="arch__rows">
+      <li><b>In Mendix</b><span>Entities, associations, microflows and security: the model the operations team works in.</span></li>
+      <li><b>In Snowflake</b><span>Reporting views read by the app. The data stays where it is rather than being copied into Mendix.</span></li>
+      <li><b>Over REST</b><span>Internal operations services, called at runtime so a work order reflects the system that owns it.</span></li>
+      <li><b>On Google Cloud Functions</b><span>Fetches and processing that run outside the app, scheduled where a scheduled job belongs.</span></li>
+    </ul>
+    <p class="t-small muted">Excel and PowerApps processes moved into these applications; the refinery reads live data instead of spreadsheets.</p>
+  </div>
+</dialog>
+<dialog class="arch" id="arch-tegna" aria-labelledby="arch-tegna-h">
+  <div class="arch__in">
+    <div class="arch__head">
+      <div><p class="t-label muted">TEGNA &middot; Tysons</p><h2 id="arch-tegna-h">How the migration was put together</h2></div>
+      <button class="arch__close" type="button" data-close aria-label="Close">&times;</button>
+    </div>
+    <svg class="arch__diagram" viewBox="0 0 560 200" role="img" aria-label="The Mendix app, REST services, and Snowflake"><g fill="none" stroke="#5ab9fc" stroke-width="1.2"><rect x="8" y="70" width="150" height="56" rx="7"/><rect x="205" y="70" width="150" height="56" rx="7"/><rect x="402" y="70" width="150" height="56" rx="7"/><path d="M158 98h47M355 98h47" stroke-dasharray="4 4"/></g><g fill="#e9edf3" font-family="Epilogue, sans-serif" font-size="15"><text x="83" y="103" text-anchor="middle">Mendix</text><text x="280" y="103" text-anchor="middle">REST</text><text x="477" y="103" text-anchor="middle">Snowflake</text></g><g fill="#8891a1" font-family="Epilogue, sans-serif" font-size="12"><text x="83" y="150" text-anchor="middle">model and screens</text><text x="280" y="150" text-anchor="middle">internal services</text><text x="477" y="150" text-anchor="middle">reporting views</text></g></svg>
+    <ul class="arch__rows">
+      <li><b>In Mendix</b><span>Domain models, pages and security rebuilt from the PowerApps screens.</span></li>
+      <li><b>From Excel</b><span>An import module keeps the spreadsheets the newsroom still sends, instead of retyping them.</span></li>
+      <li><b>On Google Cloud Functions</b><span>Ad-server data fetched on a schedule and handed to the app.</span></li>
+      <li><b>One way in</b><span>Security and roles designed once, rather than per PowerApps screen.</span></li>
+    </ul>
+    <p class="t-small muted">Lead developer on the migration, with the apps still in service after the cutover.</p>
+  </div>
+</dialog>
+<script type="module" src="assets/js/arch.js"></script>
 </body>
 </html>
