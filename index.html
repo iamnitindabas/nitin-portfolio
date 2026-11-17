@@ -78,10 +78,14 @@
   .globe-canvas:active { cursor: grabbing; }
   [data-globe-ready] .globe-poster { opacity: 0; }
   .record-below { margin-top: var(--s-8); }
-  .panel { position: relative; overflow: hidden; }
-  .panel__world { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .24; transition: opacity .45s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
-  .card:hover .panel__world, .card:focus-within .panel__world { opacity: .45; transform: scale(1.03); }
-  @media (prefers-reduced-motion: reduce) { .panel__world { transition: none; } .card:hover .panel__world, .card:focus-within .panel__world { transform: none; } }
+  #work { isolation: isolate; }
+  .world { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .world img { position: absolute; top: 0; bottom: 0; width: 54%; height: 100%; object-fit: cover; opacity: .15; transition: opacity .5s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .world__a { left: 0; object-position: 50% 45%; }
+  .world__b { right: 0; object-position: 50% 50%; }
+  #work:has(.card--a:hover) .world__a, #work:has(.card--a:focus-within) .world__a { opacity: .3; transform: scale(1.02); }
+  #work:has(.card--b:hover) .world__b, #work:has(.card--b:focus-within) .world__b { opacity: .3; transform: scale(1.02); }
+  @media (prefers-reduced-motion: reduce) { .world img { transition: none; } #work:has(.card--a:hover) .world__a, #work:has(.card--b:hover) .world__b { transform: none; } }
   .client-mark { display: inline-flex; align-items: center; width: fit-content; height: 38px; padding: 0 12px; margin: 0 0 var(--s-3); background: #e9edf3; border-radius: 5px; }
   .client-mark img { height: 16px; width: auto; display: block; }
   .tools-row { display: flex; align-items: center; gap: var(--s-4); padding: 12px 16px; border-radius: 6px; width: max-content; max-width: 100%; background: #e9edf3; }
@@ -220,18 +224,21 @@
   </section>
 
   <section class="section" id="work" aria-labelledby="work-h">
+    <div class="world" aria-hidden="true">
+      <img class="world__a" src="assets/img/refinery.jpg" alt="" loading="lazy">
+      <img class="world__b" src="assets/img/newsroom.jpg" alt="" loading="lazy">
+    </div>
     <div class="wrap">
       <div class="section-head">
-        <h2 id="work-h">European refining, application by application</h2>
+        <h2 id="work-h">A refinery portfolio and a broadcast migration</h2>
       </div>
       <div class="grid">
-        <article class="card card--row card--open span-6">
+        <article class="card card--row card--open span-6 card--a">
           <p class="client-mark"><img src="assets/logos/totalenergies.png" alt="TotalEnergies"></p>
           <h3>Runs 34 applications for European refining</h3>
           <p>HR, shift management, inventory and maintenance, wired to internal REST services for data that operations depend on.</p>
           <p><button class="link link--button" type="button" data-arch="total">Inspect the architecture</button></p>
           <div class="panel">
-            <img class="panel__world" src="assets/img/refinery.jpg" alt="" loading="lazy">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:430px;--ax:max(24px, 50% - 215px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-files" data-ui="files" data-reading="Loading {n} of {total}">
                 <div class="ui-files__status"><span class="ui-dot"></span><span data-files-status>4 core domains</span></div>
@@ -245,13 +252,12 @@
             </div></div>
           </div>
         </article>
-        <article class="card card--row card--open span-6">
+        <article class="card card--row card--open span-6 card--b">
           <p class="client-mark"><img src="assets/logos/tegna.svg" alt="TEGNA"></p>
           <h3>TEGNA's migration off PowerApps</h3>
           <p>Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
           <p><button class="link link--button" type="button" data-arch="tegna">Inspect the architecture</button></p>
           <div class="panel">
-            <img class="panel__world" src="assets/img/newsroom.jpg" alt="" loading="lazy">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-panel ui-checks" data-ui="checklist">
                 <div class="ui-checks__head"><div class="ui-title">Migration, TEGNA</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>5 of 5 &middot; in production</div></div>
