@@ -78,6 +78,10 @@
   .globe-canvas:active { cursor: grabbing; }
   [data-globe-ready] .globe-poster { opacity: 0; }
   .record-below { margin-top: var(--s-8); }
+  .panel { position: relative; overflow: hidden; }
+  .panel__world { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .24; transition: opacity .45s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .panel__world, .card:focus-within .panel__world { opacity: .45; transform: scale(1.03); }
+  @media (prefers-reduced-motion: reduce) { .panel__world { transition: none; } .card:hover .panel__world, .card:focus-within .panel__world { transform: none; } }
   .client-mark { display: inline-flex; align-items: center; width: fit-content; height: 38px; padding: 0 12px; margin: 0 0 var(--s-3); background: #e9edf3; border-radius: 5px; }
   .client-mark img { height: 16px; width: auto; display: block; }
   .tools-row { display: flex; align-items: center; gap: var(--s-4); padding: 12px 16px; border-radius: 6px; width: max-content; max-width: 100%; background: #e9edf3; }
@@ -227,6 +231,7 @@
           <p>HR, shift management, inventory and maintenance, wired to internal REST services for data that operations depend on.</p>
           <p><button class="link link--button" type="button" data-arch="total">Inspect the architecture</button></p>
           <div class="panel">
+            <img class="panel__world" src="assets/img/refinery.jpg" alt="" loading="lazy">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:430px;--ax:max(24px, 50% - 215px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-files" data-ui="files" data-reading="Loading {n} of {total}">
                 <div class="ui-files__status"><span class="ui-dot"></span><span data-files-status>4 core domains</span></div>
@@ -246,6 +251,7 @@
           <p>Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
           <p><button class="link link--button" type="button" data-arch="tegna">Inspect the architecture</button></p>
           <div class="panel">
+            <img class="panel__world" src="assets/img/newsroom.jpg" alt="" loading="lazy">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-panel ui-checks" data-ui="checklist">
                 <div class="ui-checks__head"><div class="ui-title">Migration, TEGNA</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>5 of 5 &middot; in production</div></div>
@@ -404,7 +410,7 @@
       <div class="footer__legal">
         <span>&copy; 2026 Nitin Dabas</span>
         <div class="socials"></div>
-        <span class="credits">Product names and logos are trademarks of their owners.</span>
+        <span class="credits">Product names and logos are trademarks of their owners. &nbsp; <a href="credits.html">Photographs via Wikimedia Commons</a></span>
       </div>
     </div>
   </div>
