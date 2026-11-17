@@ -9,10 +9,10 @@ no framework, no build step, no third-party JS at runtime.
 
 | Section | What it shows |
 | --- | --- |
-| Hero | A Mendix refinery work-order window; the Antwerp portfolio in one line |
+| Hero | A Mendix refinery work-order window; the Europe portfolio in one line |
 | Record | 34 / 14 / 5 figures, the 2021 → 2026 path, certifications |
-| Work | The Antwerp refineries on 34 applications, plus the TEGNA migration |
-| Reach | Spinning dot globe, real coastlines, arcs Delhi → Antwerp and Tysons |
+| Work | The Europe refineries on 34 applications, plus the TEGNA migration |
+| Reach | Spinning dot globe, real coastlines, arcs Delhi → Europe and Tysons |
 | Build | Domain models, integrations, AI-assisted delivery |
 | Close | Start a conversation, email and LinkedIn |
 
