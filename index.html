@@ -69,10 +69,10 @@
   .d-note__line i.warn { background: #fdf0dc; color: #8a5300; }
   .d-note__line b { font-weight: 500; color: #16181a; }
   @media (max-width: 380px) { header.nav:not(.is-open) .nav__actions { display: none; } }
-  @media (min-width: 640px) and (max-width: 1023px) { #reach .frame { height: 320px; } #reach .stack-4 > p:nth-of-type(2) { display: none; } #work .ui-files__grid li:nth-child(n+3) { display: none; } .hero__art { height: 340px; overflow: hidden; } .hero__art .ly-piece--main { transform: scale(.55); transform-origin: 0 0; } .hero__art .ly-piece--note { display: none; } #build .panel { height: 280px; overflow: hidden; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #reach .frame { height: 320px; } #reach .stack-4 > p:nth-of-type(2) { display: none; } .hero__art { height: 340px; overflow: hidden; } .hero__art .ly-piece--main { transform: scale(.55); transform-origin: 0 0; } .hero__art .ly-piece--note { display: none; } #build .panel { height: 280px; overflow: hidden; } }
   @media (max-width: 639px) { .nav:not(.is-open) .nav__actions .btn { padding-inline: 10px; font-size: 13px; } }
   @media (max-width: 1279px) { .d-tabs span:nth-child(3) { display: none; } .d-chip { display: none; } }
-  @media (max-width: 639px) { .record-below { display: none; } #work .panel { --p-h: 240px; } #build .panel { --p-h: 280px; } #reach .frame { height: 300px; } .close__word { font-size: 12vw; line-height: .98; } }
+  @media (max-width: 639px) { .record-below { display: none; } #work .panel { --p-h: 240px; } #work .ui-files__grid li:nth-child(n+3) { display: none; } #build .panel { --p-h: 280px; } #reach .frame { height: 300px; } .close__word { font-size: 12vw; line-height: .98; } }
   .globe-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .5s ease; }
   .globe-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
   .globe-canvas:active { cursor: grabbing; }
@@ -86,6 +86,64 @@
   #record .record-below .t-label { margin: 0 0 var(--s-4); }
   #record .rows li { padding: var(--s-4) 0; }
   @media (max-width: 639px) { .record-below { margin-top: var(--s-8); } #record .rows li { padding: var(--s-3) 0; } }
+
+  /* work: two client chapters on one two-screen ground, split across one composite photograph */
+  #work { height: auto; min-height: 200svh; padding: 0; position: relative; isolation: isolate; overflow: clip; }
+  #work > .wrap { display: grid; grid-template-rows: 1fr 1fr; height: auto; min-height: 200svh; z-index: 2; }
+  #work > .layer { z-index: 0; opacity: .55; }
+  #work::before, #work::after { content: ""; position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
+  #work::before { top: 0; height: 50%; background: linear-gradient(90deg, rgb(10 13 20 / .96) 0%, rgb(10 13 20 / .9) 34%, rgb(10 13 20 / .62) 68%, rgb(10 13 20 / .55) 100%), linear-gradient(180deg, rgb(10 13 20 / .2), rgb(10 13 20 / .35)); }
+  #work::after { bottom: 0; height: 50%; background: linear-gradient(180deg, rgb(10 13 20 / .96) 0%, rgb(10 13 20 / .86) 40%, rgb(10 13 20 / .6) 100%); }
+  .chapter { padding: var(--padt) 0 calc(var(--padb) + var(--bar)); }
+  #work h2 { max-width: 24ch; margin: var(--s-3) 0 var(--s-6); }
+  .chapter__eyebrow { margin: 0 0 var(--s-3); }
+  .chapter__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+  .chapter__text { grid-column: 1 / span 6; }
+  .chapter__text h3 { max-width: 20ch; margin: 0 0 var(--s-4); }
+  .chapter__lede { max-width: 52ch; margin: 0 0 var(--s-4); }
+  .chapter__grid > .panel { grid-column: 7 / -1; margin: 0; }
+  #work .chapter--b .chapter__text { grid-column: 1 / -1; }
+  #work .chapter--b .chapter__text h3 { max-width: none; }
+  #work .chapter--b .chapter__lede { max-width: 66ch; }
+  #work .chapter--b .chapter__grid > .panel { grid-column: 1 / -1; margin-top: var(--s-6); }
+  @media (min-width: 1024px) { #work .chapter--a .panel { --p-h: 420px; } }
+  #work .chapter--b .panel { --p-h: 300px; }
+  #work .chapter--b .ui-checks { width: 100%; }
+  #work .chapter--b .ui-checks__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  #work .chapter--b .ui-check { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 10px; height: auto; padding: 20px 16px 8px; border-left: 1px solid var(--u-line); }
+  #work .chapter--b .ui-check:first-child { border-left: 0; }
+  #work .chapter--b .ui-check__label { font-size: 12.5px; line-height: 18px; }
+  #work .chapter--b .ui-check__label::after { display: none; }
+  @media (max-width: 1023px) {
+    .chapter__grid { grid-template-columns: 1fr; }
+    .chapter__text, .chapter__grid > .panel { grid-column: 1 / -1; }
+    .chapter__grid > .panel { margin-top: var(--s-6); }
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #work .chapter--a .at-rise { --ax: 24px !important; }
+    #work .chapter--a .at-rise > .ui-files { max-width: none; }
+    #work .chapter--a .ui-files__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 1023px) {
+    #work .chapter--b .ui-checks__list { grid-template-columns: 1fr 1fr; }
+    #work .chapter--b .ui-check { padding: 12px 8px; border-left: 0; border-top: 1px solid var(--u-line); }
+    #work .chapter--b .ui-check:nth-child(-n+2) { border-top: 0; }
+    #work .chapter--b .panel { --p-h: 360px; }
+  }
+  @media (max-width: 639px) {
+    #work .chapter--b .ui-checks__list { display: block; }
+    #work .chapter--b .ui-check { flex-direction: row; align-items: center; height: 40px; padding: 0 16px; border: 0; }
+    #work .chapter--b .panel { --p-h: 300px; }
+  }
+  @media (max-width: 359px) { #work .chapter--b .ui-meta { display: none; } }
+  @media (max-width: 639px) { #work h2 { font-size: 30px; margin-bottom: 24px; } #work .chapter__text h3 { font-size: 22px; } #work .chapter__eyebrow { margin-bottom: 12px; } #work .chapter { padding-bottom: 45px; } }
+  @media (min-width: 1025px) and (max-height: 820px) {
+    #reach, #ai { height: auto; min-height: 100svh; }
+  }
+  #build .grid.fill { grid-template-rows: minmax(0, 1fr); }
+  #build .grid.fill > .span-6 { display: flex; align-self: stretch; }
+  #build .grid.fill .panel { flex: 1 1 auto; }
+  @media (max-width: 1279px) { #build .grid.fill { flex: 1 1 auto; min-height: auto; } }
   .client-mark { display: inline-flex; align-items: center; width: fit-content; height: 38px; padding: 0 12px; margin: 0 0 var(--s-3); background: #e9edf3; border-radius: 5px; }
   .client-mark img { height: 16px; width: auto; display: block; }
   .tools-row { display: flex; align-items: center; gap: var(--s-4); padding: 12px 16px; border-radius: 6px; width: max-content; max-width: 100%; background: #e9edf3; }
@@ -225,17 +283,19 @@
     </div>
   </section>
 
-  <section class="section" id="work" aria-labelledby="work-h">
+  <section class="section" id="work" aria-label="Selected work">
+    <img class="layer" src="assets/img/work.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="work-h">Refining applications and a broadcast migration</h2>
-      </div>
-      <div class="grid">
-        <article class="card card--row card--open span-6 card--a">
-          <p class="client-mark"><img src="assets/logos/totalenergies.png" alt="TotalEnergies"></p>
-          <h3>Runs 34 applications for European refining</h3>
-          <p>HR, shift management, inventory and maintenance, wired to internal REST services for data that operations depend on.</p>
-          <p><button class="link link--button" type="button" data-arch="total">Inspect the architecture</button></p>
+      <div class="chapter chapter--a">
+        <p class="t-label muted chapter__eyebrow">01 &middot; European refining</p>
+        <h2 id="work-h">European refining and US broadcasting applications</h2>
+        <div class="chapter__grid">
+          <div class="chapter__text">
+            <p class="client-mark"><img src="assets/logos/totalenergies.png" alt="TotalEnergies"></p>
+            <h3 id="work-total-h">Runs 34 applications for European refining</h3>
+            <p class="chapter__lede">HR, shift management, inventory and maintenance, wired to internal REST services for data that operations depend on.</p>
+            <p><button class="link link--button" type="button" data-arch="total">Inspect the architecture</button></p>
+          </div>
           <div class="panel">
             <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:430px;--ax:max(24px, 50% - 215px);--ay:40px;--ay-sm:16px">
               <div class="ui ui-files" data-ui="files" data-reading="Loading {n} of {total}">
@@ -248,15 +308,20 @@
                 </ul>
               </div>
             </div></div>
+        </div>
+      </div>
+      </div>
+      <div class="chapter chapter--b">
+        <p class="t-label muted chapter__eyebrow">02 &middot; US broadcasting</p>
+        <div class="chapter__grid chapter__grid--stack">
+          <div class="chapter__text">
+            <p class="client-mark"><img src="assets/logos/tegna.svg" alt="TEGNA"></p>
+            <h3 id="work-tegna-h">TEGNA's migration off PowerApps</h3>
+            <p class="chapter__lede">Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
+            <p><button class="link link--button" type="button" data-arch="tegna">Inspect the architecture</button></p>
           </div>
-        </article>
-        <article class="card card--row card--open span-6 card--b">
-          <p class="client-mark"><img src="assets/logos/tegna.svg" alt="TEGNA"></p>
-          <h3>TEGNA's migration off PowerApps</h3>
-          <p>Lead developer on the migration, rebuilding Excel and PowerApps processes as Mendix apps and adding Google Cloud Functions for ad-server data.</p>
-          <p><button class="link link--button" type="button" data-arch="tegna">Inspect the architecture</button></p>
           <div class="panel">
-            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:40px;--ay-sm:16px">
+            <div class="stage"><div class="at-center" style="--w:980px">
               <div class="ui ui-panel ui-checks" data-ui="checklist">
                 <div class="ui-checks__head"><div class="ui-title">Migration, TEGNA</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>5 of 5 &middot; in production</div></div>
                 <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
@@ -269,8 +334,8 @@
                 </ul>
               </div>
             </div></div>
-          </div>
-        </article>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -306,7 +371,7 @@
       <div class="section-head">
         <h2 id="build-h">Domain models, integrations and AI-assisted delivery</h2>
       </div>
-      <div class="grid grid--top">
+      <div class="grid grid--top fill">
         <div class="span-5 stack-4">
           <div>
             <p class="t-card">Domain models for the long run</p>
@@ -323,7 +388,7 @@
         </div>
         <div class="span-6 start-7">
           <div class="panel">
-            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:440px;--ax:max(24px, 50% - 220px);--ay:40px;--ay-sm:16px">
+            <div class="stage"><div class="at-center" style="--w:440px">
               <div class="ui ui-panel ui-apps" data-ui="integrations">
                 <div class="ui-head"><div class="ui-title">Connected systems</div><span class="ui-spacer"></span><div class="ui-meta">4 live</div></div>
                 <ul class="ui-apps__list">

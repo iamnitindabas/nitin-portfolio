@@ -11,7 +11,7 @@ no framework, no build step, no third-party JS at runtime.
 | --- | --- |
 | Hero | A Mendix refinery work-order window; the Europe portfolio in one line |
 | Record | 34 / 14 / 5 figures, the 2021 → 2026 path, certifications |
-| Work | The Europe refineries on 34 applications, plus the TEGNA migration |
+| Work | Two client chapters on one two-screen visual: European refining, then US broadcasting |
 | Reach | Spinning dot globe, real coastlines, arcs Delhi → Europe and Tysons |
 | Build | Domain models, integrations, AI-assisted delivery |
 | Close | Start a conversation, email and LinkedIn |
@@ -29,10 +29,7 @@ Modules and the canvas need http, not `file://`.
 
 ```powershell
 # 1. build the folder that goes to Pages
-$dist = "dist"; Remove-Item $dist -Recurse -Force -ErrorAction SilentlyContinue
-New-Item -ItemType Directory $dist | Out-Null
-Copy-Item index.html,favicon.svg,globe-fallback.svg,share.jpg $dist
-robocopy assets "$dist\assets" /E /NFL /NDL /NJH /NJS /NP | Out-Null
+node tools/build.mjs
 
 # 2. publish
 npx wrangler pages deploy dist --project-name nitin-dabas --branch main
@@ -62,9 +59,16 @@ The page is built against the `design-taste-frontend` kit and its checker:
 node .agents/skills/design-taste-frontend/scripts/gate.mjs index.html          # GATE: PASS
 node .agents/skills/design-taste-frontend/scripts/consistency.mjs index.html --quick --widths 1440,390
 node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs index.html --kind software
+node tools/overlap-check.mjs                                                  # every laptop, tablet and phone size
 ```
 
-Current state: gate PASS, consistency 0 FAIL at 1440/1024/820/768/390/320, copy-lint 0 FAIL.
+`tools/overlap-check.mjs` builds its own headless Chrome, serves the page, and fails if two
+sections' bounds cross, a section's content outgrows its `.wrap`, two blocks of running text
+overlap, or the page scrolls sideways. It covers 1440×900, 1366×768, 1280×720, 1024×768,
+820×1180, 768×1024, 390×844 and 320×640; add `--shots` to write section screenshots to
+`shots/check/`.
+
+Current state: gate PASS, consistency 0 FAIL, copy-lint 0 FAIL, overlap none at all eight sizes.
 
 ## Notes
 
